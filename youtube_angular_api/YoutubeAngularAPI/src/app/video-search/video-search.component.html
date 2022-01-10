@@ -1,0 +1,15 @@
+<!-- El formulario se tiene que llamar como hayamos definido la variable formGroup en el ts -->
+<form class="form-inline" [formGroup]="search" (ngSubmit)="onSubmit()">
+  <div class="form-group mb-2" >
+    <label for="search">Search:
+      <input class="form-control" type="text" formControlName="search"/>
+      <div *ngIf="submitted && formulario['search'].errors">
+        <div>El campo search : </div>
+        <div *ngIf="formulario['search'].errors['required']">No puede estar vacío</div>
+      </div>
+    </label>
+  </div>
+  <div class="form-group">
+    <input class="btn btn-primary mb-2" type="submit" value="Buscar" />
+  </div>
+</form>
